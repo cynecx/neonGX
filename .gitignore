@@ -1,0 +1,11 @@
+.idea
+bin/
+build/
+*.lo
+*.o
+*.a
+*.so
+*.so.*
+*.log
+*.out
+*.out.js

@@ -1,0 +1,37 @@
+package pong;
+
+message GameSettings {
+  required int32 field_width = 1;
+  required int32 field_height = 2;
+  required int32 paddle_width = 3;
+  required int32 paddle_height = 4;
+  required int32 ball_width = 5;
+  required int32 ball_height = 6;
+}
+
+message GameUpdate {
+  required string id = 1;
+  required int32 p1_dy = 2;
+  required int32 p2_dy = 3;
+  required bool started = 4;
+  required int32 p1_points = 5;
+  required int32 p2_points = 6;
+  required int32 ball_x = 7;
+  required int32 ball_y = 8;
+}
+
+message GameAction {
+  required int32 player = 1;
+  required int32 dy = 2;
+}
+
+message GamePayload {
+  enum Type { Settings = 1; Update = 2; Action = 3; };
+
+  required Type type = 1;
+
+  optional GameSettings settings = 2;
+  optional GameUpdate update = 3;
+  optional GameAction action = 4;
+}
+
